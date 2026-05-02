@@ -71,8 +71,9 @@
                 <h6 class="poppinss">Hi, I'm</h6>
                 <h1 class="t-white">Kamini Parmar</h1>
                 <h4 class="poppinss">B.Tech IT Student</h4>
-                <a href="{% static 'images/resume.png' %}"  target="_blank">
-                    <button class="btn poppins">Resume</button></a>
+                <a href="{% static 'images/Resumek.pdf' %}" target="_blank">
+                <button class="btn poppins">Resume</button>
+                </a>
                     
                 <a class="btn live poppins" id="hireme" href="https://wa.me/918866413592?text=Hello%20Kamini%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20connect"
                     target="_blank">Contact Me</a>
@@ -90,12 +91,11 @@
     <!-- About Section -->
     <section id="about">
         
-        <h1 class="t-center my-2 t-white f-2"> .</h1>
-        <h2 class="t-center my-2 t-white f-2">About Me</h1>
+        <h1 class="t-center my-2 t-white f-2">About Me</h1>
         <div class="about-container flex s-around ">
             <div class=" about-left flex s-center items-center">
                 <!-- Here in src replade the given link with your secondary image link -->
-                <img src="{%static 'images/dog.png'%}" alt="" style="width: 60%;">
+                <img src="{%static 'images/abi.png'%}" alt="" style="width: 65%; height: 340px; object-fit: cover; border-radius: 1rem;">
             </div>
 
 
@@ -104,7 +104,7 @@
                     
                     <h1 class="t-white m-b-1 poppins">Kamini Parmar</h1>
 
-                    <p class="t-white poppins">I am an Information Technology student currently pursuing B.Tech (4th Semester) at Parul University with a strong interest in web development and UI/UX design. I enjoy building responsive and user-friendly web applications.
+                    <p class="t-white poppins">I am an Information Technology student currently pursuing B.Tech (4th Semester) at Parul University with strong interest in web development and UI/UX design. I enjoy building responsive and user-friendly web applications.
 <p class="t-white poppins">I have practical experience through projects using Django and modern web technologies, and I am continuously working to enhance my skills and grow as a developer. I am also passionate about creating clean and visually appealing designs that improve user experience.</p>                                                          
 <a class="btn" 
    href="https://wa.me/918866413592?text=Hello%20Kamini%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20connect" 
@@ -200,6 +200,7 @@
             <!-- SOFT SKILLS -->
             <div class="skill-box">
                 <h2 class="t-white skill-title">Soft Skills</h2>
+                <div class="tech-line"></div>
 
                 <div class="skill">
                     <div class="skill-info">
@@ -246,9 +247,7 @@
     </div>
 </section>
 
-<!--experience-->
-
-<!-- ===== EXPERIENCE SECTION ===== -->
+<!-- EXPERIENCE SECTION -->
 <section id="experience">
     <h1 class="t-center my-2 t-white f-2">Experience</h1>
 
@@ -264,59 +263,71 @@
         </p>
 
         <button class="cert-btn"
-        onclick="openCert('{% static 'images/internship.jpg' %}')">
+        onclick="openCert('{% static "images/internship.jpg" %}')">
         View Certificate</button>
     </div>
 
-    <!-- SUB INTERNSHIPS -->
+    <!-- SUB EXPERIENCE -->
     <div class="sub-exp-container">
 
         <div class="sub-exp-card">
             <p><b>Company:</b> Bakti Ki Pathshala Foundation</p>
             <p><b>Role:</b> Social Entrepreneur</p>
             <p><b>Date:</b> 01-07-2025</p>
+
             <button class="cert-btn"
-            onclick="openCert('{% static 'images/i7.jpg' %}')">View</button>
+            onclick="openCert('{% static "images/i7.jpg" %}')">
+            View</button>
         </div>
 
         <div class="sub-exp-card">
             <p><b>Company:</b> Tare Zameen Foundation</p>
             <p><b>Role:</b> Fundraising</p>
             <p><b>Date:</b> 03-07-2024</p>
+
             <button class="cert-btn"
-            onclick="openCert('{% static 'images/i6.jpg' %}')">View</button>
+            onclick="openCert('{% static "images/i6.jpg" %}')">
+            View</button>
         </div>
 
         <div class="sub-exp-card">
             <p><b>Company:</b> She Can Foundation</p>
             <p><b>Role:</b> Social Entrepreneur</p>
             <p><b>Date:</b> 03-01-2024</p>
+
             <button class="cert-btn"
-            onclick="openCert('{% static 'images/i5.jpg' %}')">View</button>
+            onclick="openCert('{% static "images/i5.jpg" %}')">
+            View</button>
         </div>
 
         <div class="sub-exp-card">
             <p><b>Company:</b> Amigos Foundation</p>
             <p><b>Role:</b> Virtual Volunteer</p>
             <p><b>Date:</b> 03-02-2024</p>
+
             <button class="cert-btn"
-            onclick="openCert('{% static 'images/i4.jpg' %}')">View</button>
+            onclick="openCert('{% static "images/i4.jpg" %}')">
+            View</button>
         </div>
 
         <div class="sub-exp-card">
             <p><b>Company:</b> She Can Foundation</p>
             <p><b>Role:</b> Social Entrepreneurship</p>
             <p><b>Date:</b> 31-08-2025</p>
+
             <button class="cert-btn"
-            onclick="openCert('{% static 'images/i3.jpg' %}')">View</button>
+            onclick="openCert('{% static "images/i3.jpg" %}')">
+            View</button>
         </div>
 
         <div class="sub-exp-card">
             <p><b>Company:</b> Harami Pahchan NGO</p>
             <p><b>Role:</b> Social Entrepreneur</p>
             <p><b>Date:</b> 26-07-2023</p>
+
             <button class="cert-btn"
-            onclick="openCert('{% static 'images/i2.jpg' %}')">View</button>
+            onclick="openCert('{% static "images/i2.jpg" %}')">
+            View</button>
         </div>
 
     </div>
@@ -668,7 +679,7 @@ window.onclick = function(e) {
                 <i class="fa-brands fa-linkedin-in"></i>
             </a>
 
-            <a href="https://github.com/kamini569" target="_blank">
+            <a href="https://github.com/kamini569" target="_blank">+    +-97542q1q2ertyuiop\9+9-053w    XVB'
                 <i class="fa-brands fa-github"></i>
             </a>
 
