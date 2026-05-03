@@ -3,20 +3,12 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# 🔐 SECURITY
-SECRET_KEY = 'your-secret-key'
-DEBUG = True   # Change to False in production
+SECRET_KEY = os.environ.get("SECRET_KEY", "your-secret-key")
 
-# 🌐 HOST CONFIGURATION
-ENV = os.environ.get('ENV', 'development')
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-if ENV == 'production':
-    ALLOWED_HOSTS = ['kamini143.pythonanywhere.com']
-else:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ["*"]
 
-
-# 📦 INSTALLED APPS
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -24,14 +16,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'Base',   # your app
+    'Base',
 ]
 
-
-# ⚙️ MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -40,21 +30,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
-# 🌍 URL CONFIG
 ROOT_URLCONF = 'portfolio.urls'
 
-
-# 🎨 TEMPLATES
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # add custom templates folder if needed
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.debug',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -62,8 +48,8 @@ TEMPLATES = [
     },
 ]
 
+WSGI_APPLICATION = 'portfolio.wsgi.application'
 
-# 🗄️ DATABASE
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -71,28 +57,28 @@ DATABASES = {
     }
 }
 
+AUTH_PASSWORD_VALIDATORS = []
 
-# 🌍 INTERNATIONALIZATION
 LANGUAGE_CODE = 'en-us'
+
 TIME_ZONE = 'UTC'
+
 USE_I18N = True
+
 USE_TZ = True
 
-
-# 📁 STATIC FILES
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"   # for production
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# 🖼️ MEDIA FILES
-MEDIA_URL = '/images/'
+MEDIA_URL = '/media/'
+
 MEDIA_ROOT = BASE_DIR / 'media'
 
-
-# 🔑 DEFAULT FIELD
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
