@@ -15,6 +15,10 @@ if ENV == 'production':
 else:
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
+RAILWAY_PUBLIC_DOMAIN = os.environ.get('RAILWAY_PUBLIC_DOMAIN', '')
+if RAILWAY_PUBLIC_DOMAIN:
+    ALLOWED_HOSTS.append(RAILWAY_PUBLIC_DOMAIN)
+
 
 # 📦 INSTALLED APPS
 INSTALLED_APPS = [
