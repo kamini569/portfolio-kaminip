@@ -13,6 +13,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.up.railway.app",
     "https://kaminiportfolio.up.railway.app/",
 ]
+print("LOADED CSRF:", CSRF_TRUSTED_ORIGINS)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
