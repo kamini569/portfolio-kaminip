@@ -4,7 +4,7 @@ class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     number = models.CharField(max_length=15)
-    content = models.TextField()
+    message = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
