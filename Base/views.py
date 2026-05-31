@@ -1,17 +1,19 @@
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail
-from django.conf import settings
 from .models import Contact
+import requests
+
+BOT_TOKEN = "8973986453:AAHBx_HI0aA-Xrcx_mF67mFzy5FKSfnRmTo"
+CHAT_ID = "5980707306"
 
 
 def home(request):
 
     if request.method == "POST":
 
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        number = request.POST.get('number')
-        message = request.POST.get('message') or request.POST.get('content')
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        number = request.POST.get("number")
+        message = request.POST.get("message")
 
         Contact.objects.create(
             name=name,
@@ -20,30 +22,29 @@ def home(request):
             message=message
         )
 
-        subject = f"New Portfolio Contact - {name}"
+        telegram_message = f"""
+🔥 New Portfolio Contact
 
-        email_message = f"""
-Name: {name}
+👤 Name: {name}
+📧 Email: {email}
+📱 Phone: {number}
 
-Email: {email}
-
-Phone: {number}
-
-Message:
+💬 Message:
 {message}
 """
 
         try:
-            send_mail(
-                subject,
-                email_message,
-                settings.EMAIL_HOST_USER,
-                ["kaminiparmar31489@gmail.com"],
-                fail_silently=False,
+            requests.post(
+                f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
+                data={
+                    "chat_id": CHAT_ID,
+                    "text": telegram_message
+                },
+                timeout=10
             )
         except Exception as e:
-            print("EMAIL ERROR:", e)
+            print("Telegram Error:", e)
 
-        return redirect('/')
+        return redirect("/")
 
-    return render(request, 'home.html')
+    return render(request, "home.html")
