@@ -11,7 +11,7 @@ def home(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         number = request.POST.get('number')
-        message = request.POST.get('content')
+        message = request.POST.get('message') or request.POST.get('content')
 
         Contact.objects.create(
             name=name,
@@ -22,7 +22,7 @@ def home(request):
 
         subject = f"New Portfolio Contact - {name}"
 
-        mail_message = f"""
+        email_message = f"""
 Name: {name}
 
 Email: {email}
@@ -33,13 +33,16 @@ Message:
 {message}
 """
 
-        send_mail(
-            subject,
-            mail_message,
-            settings.EMAIL_HOST_USER,
-            ["kaminiparmar31489@gmail.com"],
-            fail_silently=False,
-        )
+        try:
+            send_mail(
+                subject,
+                email_message,
+                settings.EMAIL_HOST_USER,
+                ["kaminiparmar31489@gmail.com"],
+                fail_silently=False,
+            )
+        except Exception as e:
+            print("EMAIL ERROR:", e)
 
         return redirect('/')
 
