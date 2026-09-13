@@ -62,6 +62,43 @@ section {
 
 
 /* Home Section */
+/* ICON BOX */
+.home-social {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.home-social a {
+    width: 50px;
+    height: 50px;
+    background: #1f1f38;
+    border: 2px solid #df77ad;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* ICON SIZE */
+.home-social i {
+    font-size: 20px;
+    color: white;
+}
+
+/* HOVER */
+.home-social a:hover {
+    background: #df77ad;
+    transform: translateY(-4px);
+}
+
+.home-social a:hover i {
+    color: #1f1f38;
+}
 .home-left,
 .home-right {
     width: 30%;
@@ -109,6 +146,45 @@ h4 {
 }
 
 /* About Section */
+/* HIRE ME + SOCIAL ICONS SAME LINE */
+
+.about-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+.about-social a {
+    width: 45px;
+    height: 45px;
+    background: #1f1f38;
+    border: 2px solid #df77ad;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+}
+
+.about-social i {
+    font-size: 18px;
+    color: white;
+}
+
+.about-social a:hover {
+    background: #df77ad;
+    transform: translateY(-4px);
+}
+
+.about-social a:hover i {
+    color: #1f1f38;
+}
 .about-left,
 .about-right {
     width: 60%;
